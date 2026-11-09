@@ -1,0 +1,95 @@
+User logs in
+      │
+      ▼
+Server verifies password
+      │
+      ▼
+Creates JWT
+      │
+      ▼
+Browser stores JWT
+      │
+      ▼
+Every request
+
+Authorization:
+Bearer TOKEN
+      │
+      ▼
+oauth2_scheme
+      │
+Extract TOKEN
+      │
+      ▼
+jwt.decode()
+      │
+      ▼
+Payload
+      │
+      ▼
+sub
+      │
+      ▼
+Database
+      │
+      ▼
+User
+      │
+      ▼
+Route receives current_user
+
+
+
+
+
+
+
+
+                    SIGN UP
+                       │
+                       ▼
+                 bcrypt hash
+                       │
+                       ▼
+                    Database
+                       │
+                       │
+                    LOGIN
+                       │
+             email + password
+                       │
+                       ▼
+                 bcrypt.checkpw
+                       │
+                       ▼
+                     User
+                       │
+                       ▼
+                create_access_token
+                       │
+                       ▼
+                      JWT
+                       │
+                       ▼
+        Authorization: Bearer <JWT>
+                       │
+                       ▼
+              get_current_user()
+                       │
+             ┌─────────┴─────────┐
+             │                   │
+      Authentication        Authorization
+       "Who are you?"      "Can you do it?"
+             │                   │
+             ▼                   ▼
+       current_user        ownership check
+                                  │
+                    ┌─────────────┴─────────────┐
+                    │                           │
+              Movie belongs                User is
+              to this user?              same as URL id?
+                    │                           │
+                 yes/no                      yes/no
+                    │                           │
+                  allow                       allow
+                  / 403                       / 403

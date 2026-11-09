@@ -1,0 +1,32 @@
+
+# Environment variables and secrets
+.env
+.env.*
+
+# Keep an example configuration if you create one
+!.env.example
+
+# Python virtual environments
+venv/
+.venv/
+
+# Python generated files
+__pycache__/
+*.py[cod]
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Test and tool caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# VS Code workspace settings
+.vscode/
+
+# OS generated files
+.DS_Store
+
